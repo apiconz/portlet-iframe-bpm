@@ -1,38 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet"%>
-<%@ page import="javax.portlet.*"%>
-<portlet:defineObjects />
-<%
-	//Portlet namespace
-	String portletNS = renderResponse.getNamespace(); 
-String url = renderResponse.encodeURL(renderRequest.getContextPath()+"/WEB-INF/js/portletiframe.js"); 
-%>
+var coachFrame=document.getElementsByName("lombardicoach");
+coachFrame.setAttribute('onLoad','detectHumanServiceHasFinished(this, humanServiceHasFinished)');
 
-<portlet:resourceURL>
-</portlet:resourceURL>
-<script type="text/javascript" src="<%=url%>">
-<!--
-
-//-->
-</script>
-<script type="text/javascript">
-<!--
-function humanServiceHasFinished(iframe) {
-    //setting the iframe src attribute does not survive a full page refresh
-    //but is enough to prove the concept
-    iframe.src = 'about:blank';
-    alert("Human service has finished");
+var receiveFromCoach3=function (aString) {
+	alert("adaddad");
+    console.log(""+aString);	
 }
 
 function detectHumanServiceHasFinished(iframe, callback) {
-    alert("Human service has finished");
+ console.log("SE EJECUTA DETECCION DE HUMAN SERVICE FINALIZADO");	
     //get the embedded document's body
-    var cw = iframe.contentWindow;
+    var body = iframe.contentWindow.document.body;
 
-    var y=(cw.contentWindow || cw.contentDocument);
-    var body = y.document.body;
-
-    
     var p = null;
     var hasScript = false;
     var hasOtherTag = false; 
@@ -83,14 +61,13 @@ function detectHumanServiceHasFinished(iframe, callback) {
     }
       
     return true;
-}			
+}	
 
-var coachFrame = document.getElementsByName("lombardicoach");
-coachFrame.setAttribute('onLoad','detectHumanServiceHasFinished(this, humanServiceHasFinished)');
-//-->
-</script>
 
-<iframe
-	src="http://bpm8.onp.gob.pe:9080/teamworks/process.lsw?zWorkflowState=1&amp;zTaskId=<%=request.getParameter("taskID") %>"
-	name="lombardicoach" style="width: 100%; height: 500px;" onload="javascript:detectHumanServiceHasFinished(this, humanServiceHasFinished)"
-	 frameborder="0"></iframe>
+
+				
+function humanServiceHasFinished(iframe) {
+console.log("HUMAN SERVICE FINALIZADO");	
+    iframe.src = 'about:blank';
+    alert("Human service has finished");
+}

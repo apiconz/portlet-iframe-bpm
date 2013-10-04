@@ -16,6 +16,14 @@
 		<portlet-info>
 			<title>IFrame Portlet</title>
 		</portlet-info>
+		<supported-processing-event>
+			<qname xmlns:pbns="http://www.ibm.com/wps/accelerators/utl/taskLaunching">pbns:TaskSelection</qname>
+		</supported-processing-event>
 	</portlet>
 
+	<event-definition>
+		<description />
+		<qname xmlns:pbns="http://www.ibm.com/wps/accelerators/utl/taskLaunching">pbns:TaskSelection</qname>
+		<value-type>java.lang.String</value-type>
+	</event-definition>
 </portlet-app>
