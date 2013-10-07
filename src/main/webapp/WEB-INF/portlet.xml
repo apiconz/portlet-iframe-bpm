@@ -19,8 +19,16 @@
 		<supported-processing-event>
 			<qname xmlns:pbns="http://www.ibm.com/wps/accelerators/utl/taskLaunching">pbns:TaskSelection</qname>
 		</supported-processing-event>
+		<supported-publishing-event>
+			<name>refresh</name>
+		</supported-publishing-event>
 	</portlet>
 
+	<default-namespace>http://pe.apiconz.defaultnamespace/</default-namespace>
+	<event-definition>
+		<name>refresh</name>
+		<value-type>java.lang.String</value-type>
+	</event-definition>
 	<event-definition>
 		<description />
 		<qname xmlns:pbns="http://www.ibm.com/wps/accelerators/utl/taskLaunching">pbns:TaskSelection</qname>
