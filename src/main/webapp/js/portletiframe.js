@@ -1,7 +1,3 @@
-var receiveFromCoach3=function (aString) {
-	alert("adaddad");
-    console.log(""+aString);	
-}
 
 function detectHumanServiceHasFinished(iframe, callback) {
  console.log("SE EJECUTA DETECCION DE HUMAN SERVICE FINALIZADO");	

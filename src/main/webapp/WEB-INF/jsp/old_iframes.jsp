@@ -8,12 +8,10 @@
 	String urlJS = renderResponse.encodeURL(renderRequest
 			.getContextPath() + "/js/portletiframe.js");
 	String taskID = request.getParameter("taskID");
-	String hostname = request.getParameter("hostname");
-	String port = request.getParameter("port");
 	String srcIFrame = "about:blank";
 	if (request.getParameter("taskID") != null
 			&& !request.getParameter("taskID").isEmpty()) {
-		srcIFrame = "http://" + hostname + ":" + port + "/teamworks/process.lsw?zWorkflowState=1&amp;zTaskId="
+		srcIFrame = "http://wp8.onp.gob.pe:80/teamworks/process.lsw?zWorkflowState=1&amp;zTaskId="
 				+ taskID;
 	}
 %>

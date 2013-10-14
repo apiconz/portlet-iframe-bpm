@@ -16,6 +16,16 @@
 		<portlet-info>
 			<title>IFrame Portlet</title>
 		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>bpm.hostname</name>
+				<value>wp8.onp.gob.pe</value>
+			</preference>
+			<preference>
+				<name>bpm.port</name>
+				<value>80</value>
+			</preference>
+		</portlet-preferences>
 		<supported-processing-event>
 			<qname xmlns:pbns="http://www.ibm.com/wps/accelerators/utl/taskLaunching">pbns:TaskSelection</qname>
 		</supported-processing-event>

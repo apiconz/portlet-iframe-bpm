@@ -9,6 +9,7 @@ import javax.portlet.EventRequest;
 import javax.portlet.EventResponse;
 import javax.portlet.GenericPortlet;
 import javax.portlet.PortletException;
+import javax.portlet.PortletPreferences;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
@@ -16,6 +17,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class IFramePortlet extends GenericPortlet {
+	private static final String PREFERENCE_BPM_PORT = "bpm.port";
+	private static final String PREFERENCE_BPM_HOSTNAME = "bpm.hostname";
 	private static final String JSP_ACTIONS = "/WEB-INF/jsp/iframes.jsp";
 
 	@Override
@@ -54,6 +57,13 @@ public class IFramePortlet extends GenericPortlet {
 						.println("Se produjo un error obteniendo el taskID del evento recibido");
 			}
 
+			PortletPreferences preferences = request.getPreferences();
+			String hostname = preferences.getValue(PREFERENCE_BPM_HOSTNAME,
+					"bpm8.onp.gob.pe");
+			String port = preferences.getValue(PREFERENCE_BPM_PORT, "9080");
+
+			response.setRenderParameter("hostname", hostname);
+			response.setRenderParameter("port", port);
 			response.setRenderParameter("taskID", taskID);
 		}
 
